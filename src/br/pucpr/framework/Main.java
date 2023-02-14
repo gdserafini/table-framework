@@ -3,10 +3,10 @@ package br.pucpr.framework;
 import br.pucpr.framework.code.PrintTable;
 import br.pucpr.framework.code.column.ColumnData;
 import br.pucpr.framework.code.column.ColumnTableData;
+import br.pucpr.framework.code.meta.Inspector;
 import br.pucpr.framework.model.Model;
 import br.pucpr.framework.model.ModelColumn;
 import br.pucpr.framework.model.ModelData;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +33,15 @@ public class Main {
         );
 
         PrintTable.print(table2);
+
         //meta programming based
+        var inspector = new Inspector<Model>();
+
+        ColumnTableData<Model> columns2 = new ColumnTableData<>(
+                modelGeneral, inspector.inspect(Model.class)
+        );
+
+        PrintTable.print(columns2);
 
         //extra
     }

@@ -1,10 +1,15 @@
 package br.pucpr.framework.model;
 
+import br.pucpr.framework.code.meta.Column;
+
 import java.util.Objects;
 
 public class Model {
 
+    @Column(title = "Property1", order = 1)
     private String property1;
+
+    @Column(title = "Property2", order = 2)
     private String property2;
 
     public Model(String property1, String property2){
